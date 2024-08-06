@@ -52,12 +52,36 @@ docker exec -it assign mysql -u root -p
 ### API 목록
 spring rest docs를 사용해 작성했습니다. `[서버 주소]/docs/index.html`에서 실행됩니다.
 
-다음 링크에서도 확인할 수 있습니다. [API 문서](./readme/API%20Specification.pdf)
+다음 링크에서도 확인할 수 있습니다. [API 문서](./readme/api_specification.pdf)
 
 ### 테스트 코드
 테스트 커버리지는 `build/reports/jacoco/test/html/index.html`에서 확인할 수 있습니다.
 
 ![coverage.png](./readme/coverage.png)
+
+### UI
+#### 1. 조회
+   - 달별 일정 조회 : `GET /schedule?year=2024&month=8`
+   - 상세 일정 조회 : `GET /schedule/{id}`
+
+| 달별 일정 UI                                        | 상세 일정 UI                                         |
+|-------------------------------------------------|--------------------------------------------------|
+| ![일정생성UI](/readme/UI/get_monthly_schedules.png) | ![일정생성결과UI](./readme/UI/get_detail_schedule.png) |
+
+#### 2. 일정 생성 : `POST /schedule`
+| 일정 생성 UI                                  | 일정 생성 결과 UI                                |
+|-------------------------------------------|--------------------------------------------|
+| ![일정생성UI](/readme/UI/create_schedule.png) | ![일정생성결과UI](./readme/UI/create_result.png) |
+
+#### 3. 일정 삭제
+| 일정 삭제 UI                                  | 일정 삭제 결과 UI                                |
+|-------------------------------------------|--------------------------------------------|
+| ![일정삭제UI](/readme/UI/delete_schedule.png) | ![일정삭제결과UI](./readme/UI/delete_result.png) |
+
+#### 4. 일정 갱신
+| 일정 갱신 UI                                  | 일정 삭제 결과 UI                                |
+|-------------------------------------------|--------------------------------------------|
+| ![일정갱신UI](/readme/UI/update_schedule.png) | ![일정갱신결과UI](./readme/UI/update_result.png) |
 
 ### 고려했던 것들
 #### 예외처리
