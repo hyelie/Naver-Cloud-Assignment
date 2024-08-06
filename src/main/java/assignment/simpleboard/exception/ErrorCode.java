@@ -12,6 +12,7 @@ public enum ErrorCode {
 
     // 404
     SCHEDULE_NOT_FOUND(HttpStatus.NOT_FOUND, "There is no corresponding schedule."),
+    ENDPOINT_NOT_FOUND(HttpStatus.NOT_FOUND, "There is no corresponding endpoint."),
 
     // 502
     DATABASE_CONNECTION_ERROR(HttpStatus.BAD_GATEWAY, "Failed to connect to database server."),
