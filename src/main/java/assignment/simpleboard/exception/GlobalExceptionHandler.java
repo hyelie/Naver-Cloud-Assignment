@@ -43,6 +43,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         log.error("handleValidationViolateException throws Exceptions : {}", ErrorCode.PARAMETER_NOT_VALID);
+        System.out.println(request);;
         String errorMessage = ex.getBindingResult().getAllErrors().get(0).getDefaultMessage();
         return new ResponseEntity<Object>(ErrorResponse.toResponseObject(ErrorCode.PARAMETER_NOT_VALID, errorMessage), HttpStatus.BAD_REQUEST);
     }
@@ -56,7 +57,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleNoResourceFoundException(NoResourceFoundException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-        log.error("handleNoHandlerFoundException throws Exceptions : {}", ErrorCode.ENDPOINT_NOT_FOUND);
+        log.error("handleNoResourceFoundException throws Exceptions : {}", ErrorCode.ENDPOINT_NOT_FOUND);
         String errorMessage = ex.getLocalizedMessage();
         return new ResponseEntity<Object>(ErrorResponse.toResponseObject(ErrorCode.ENDPOINT_NOT_FOUND), HttpStatus.NOT_FOUND);
     }
