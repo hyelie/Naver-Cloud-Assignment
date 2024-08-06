@@ -49,7 +49,7 @@ public class ScheduleService {
                 scheduleDto.getStartTime(),
                 scheduleDto.getEndTime(),
                 LocalDateTime.now(),
-                schedule.getFinished(),
+                scheduleDto.getFinished(),
                 scheduleDto.getMemo(),
                 scheduleDto.getLocation(),
                 scheduleDto.getCategory());
