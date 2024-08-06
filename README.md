@@ -65,17 +65,23 @@ spring rest docs를 사용해 작성했습니다. `[서버 주소]/docs/index.ht
 |-------------------------------------------------|--------------------------------------------------|
 | ![일정생성UI](/readme/UI/get_monthly_schedules.png) | ![일정생성결과UI](./readme/UI/get_detail_schedule.png) |
 
-#### 2. 일정 생성 : `POST /schedule`
+#### 2. 일정 생성
+  - `POST /schedule`
+
 | 일정 생성 UI                                  | 일정 생성 결과 UI                                |
 |-------------------------------------------|--------------------------------------------|
 | ![일정생성UI](/readme/UI/create_schedule.png) | ![일정생성결과UI](./readme/UI/create_result.png) |
 
 #### 3. 일정 삭제
+  - `DELETE /schedule`
+
 | 일정 삭제 UI                                  | 일정 삭제 결과 UI                                |
 |-------------------------------------------|--------------------------------------------|
 | ![일정삭제UI](/readme/UI/delete_schedule.png) | ![일정삭제결과UI](./readme/UI/delete_result.png) |
 
-#### 4. 일정 갱신
+#### 4. 일정 수정
+  - `PUT /schedule`
+
 | 일정 갱신 UI                                  | 일정 삭제 결과 UI                                |
 |-------------------------------------------|--------------------------------------------|
 | ![일정갱신UI](/readme/UI/update_schedule.png) | ![일정갱신결과UI](./readme/UI/update_result.png) |
