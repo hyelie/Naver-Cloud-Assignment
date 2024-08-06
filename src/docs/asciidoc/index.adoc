@@ -1,0 +1,38 @@
+= API Specification
+Inflearn Assignment
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+== 오류 코드
+=== 오류 코드 목록
+operation::errorcode-response[snippets='errorcode-response-fields']
+
+== 상태 확인
+=== health check API
+operation::health-check[snippets='http-request,http-response']
+
+== 일정 관련 API
+=== 달별 일정 조회
+operation::get-monthly-schedules[snippets='http-request,query-parameters,http-response,request-fields']
+
+=== 상세 일정 조회
+operation::get-detailed-schedule[snippets='http-request,path-parameters,http-response,response-fields']
+==== 존재하지 않는 일정 상세 조회
+operation::get-detailed-schedule/not-found[snippets=http-response]
+
+=== 일정 추가
+operation::create-schedule[snippets='http-request,request-fields,http-response']
+
+=== 일정 삭제
+operation::delete-schedule[snippets='http-request,request-fields,http-response']
+==== 존재하지 않는 일정 삭제
+operation::delete-schedule/not-found[snippets=http-response]
+
+=== 일정 수정
+operation::update-schedule[snippets='http-request,request-fields,http-response,response-fields']
+==== 존재하지 않는 일정 수정
+operation::update-schedule/not-found[snippets='http-response']
