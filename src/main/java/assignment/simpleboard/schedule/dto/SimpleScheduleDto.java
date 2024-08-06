@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class SimpleScheduleDto {
+    String id;
     String name;
     LocalDateTime startTime;
     LocalDateTime endTime;
@@ -18,6 +19,7 @@ public class SimpleScheduleDto {
     String category;
 
     public SimpleScheduleDto(Schedule schedule){
+        this.id = schedule.getId();
         this.name = schedule.getName();
         this.startTime = schedule.getStartTime();
         this.endTime = schedule.getEndTime();

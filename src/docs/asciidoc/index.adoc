@@ -17,7 +17,7 @@ operation::health-check[snippets='http-request,http-response']
 
 == 일정 관련 API
 === 달별 일정 조회
-operation::get-monthly-schedules[snippets='http-request,query-parameters,http-response,request-fields']
+operation::get-monthly-schedules[snippets='http-request,query-parameters,http-response,response-fields']
 
 === 상세 일정 조회
 operation::get-detailed-schedule[snippets='http-request,path-parameters,http-response,response-fields']

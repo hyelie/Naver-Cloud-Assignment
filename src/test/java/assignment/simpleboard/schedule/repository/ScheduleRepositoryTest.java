@@ -2,10 +2,12 @@ package assignment.simpleboard.schedule.repository;
 
 import assignment.simpleboard.schedule.entity.Schedule;
 import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.event.annotation.BeforeTestExecution;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,6 +19,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ScheduleRepositoryTest {
     @Autowired
     private ScheduleRepository scheduleRepository;
+
+    @BeforeEach
+    void clean() {
+        scheduleRepository.deleteAll();
+    }
 
     @Test
     void testFindByStartTimeBetweenOrEndTimeBetween() {

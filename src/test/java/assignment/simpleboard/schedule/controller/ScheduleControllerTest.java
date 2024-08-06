@@ -314,14 +314,20 @@ public class ScheduleControllerTest {
         int year = 2024;
         int month = 8;
         SimpleScheduleDto scheduleDto1 = SimpleScheduleDto.builder()
+                .id(UUID.randomUUID().toString())
                 .name("test-schedule-1")
                 .startTime(LocalDateTime.of(2024, 8, 1, 10, 0))
                 .endTime(LocalDateTime.of(2024, 8, 1, 12, 0))
+                .finished(false)
+                .category("test-category-1")
                 .build();
         SimpleScheduleDto scheduleDto2 = SimpleScheduleDto.builder()
-                .name("test-schedule-1")
+                .id(UUID.randomUUID().toString())
+                .name("test-schedule-2")
                 .startTime(LocalDateTime.of(2024, 8, 15, 14, 0))
                 .endTime(LocalDateTime.of(2024, 8, 15, 16, 0))
+                .finished(true)
+                .category("test-category-2")
                 .build();
 
         when(scheduleService.getMonthlySchedules(year, month)).thenReturn(Arrays.asList(scheduleDto1, scheduleDto2));
@@ -333,10 +339,9 @@ public class ScheduleControllerTest {
                         .andExpect(status().isOk())
                         .andExpect(jsonPath("$.schedules").isArray())
                         .andExpect(jsonPath("$.schedules[0].name").value("test-schedule-1"))
-                        .andExpect(jsonPath("$.schedules[1].name").value("test-schedule-1"));
+                        .andExpect(jsonPath("$.schedules[1].name").value("test-schedule-2"));
 
         // docs
-
         result.andDo(document("get-monthly-schedules",
                 preprocessRequest(prettyPrint()),
                 preprocessResponse(prettyPrint()),
@@ -346,6 +351,7 @@ public class ScheduleControllerTest {
                 ),
                 responseFields(
                         fieldWithPath("schedules").description("월별 일정 목록"),
+                        fieldWithPath("schedules[].id").description("일정 ID"),
                         fieldWithPath("schedules[].name").description("일정 이름"),
                         fieldWithPath("schedules[].startTime").description("시작 시간"),
                         fieldWithPath("schedules[].endTime").description("종료 시간"),
