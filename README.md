@@ -1,5 +1,5 @@
 # SDN Service Onboarding Assignment
-Spring Boot를 활용한 Simple Board Project 진행
+Spring Boot를 활용한 Simple Board Project
 
 ### 요구사항
 - Spring Boot 3.3.X
@@ -14,14 +14,14 @@ Spring Boot를 활용한 Simple Board Project 진행
 ### 환경 구성 & 실행 방법
 1. DB 사용한 로컬 환경 구성
 
-다음 명령어를 실행해 MySQL을 docker에 올림
+다음 명령어를 실행해 MySQL을 docker에 올립니다.
 
 ```bash
 sudo chmod 755 ./localenv/mysql/conf.d/my.cnf
 docker-compose -f ./localenv/docker-compose.yaml --env-file ./localenv/.localenv up -d
 ```
 
-이후 아래 명령어를 사용해 DB에 접속 확인
+이후 아래 명령어를 사용해 DB에 접속할 수 있습니다.
 ```bash
 docker ps
 docker exec -it assign mysql -u root -p
@@ -33,11 +33,7 @@ docker exec -it assign mysql -u root -p
 ./gradlew clean build jacocoTestReport bootRun 
 ```
 
-## 과제 내용
-
-네이버 캘린더 애플리케이션의 경우 모든 일정에 완료 여부를 표시할 수 있습니다.
-
-<img src="./readme/calendar_application.jpg" alt="네이버 캘린더 애플리케이션" width="auto" height="300">
+## 개요
 
 네이버 개발자들이 애용하는 웍스의 **일정** 기능은 **할 일** 기능과 연동되어, 할 일에 작성한 내용이 달력에도 보입니다. 이렇게 작성한 **할 일**들은 달력에서 체크박스를 활용해 할 일의 완료 여부를 확인할 수 있습니다.
 
@@ -45,9 +41,10 @@ docker exec -it assign mysql -u root -p
 |------------------------------------|---------------------------------------|
 | ![웍스 할 일](./readme/works_task.png) | ![웍스 달력](./readme/works_calendar.png) |
 
-그러나 웍스의 일정은 완료 여부를 체크할 수 없었습니다. 지금까지 네이버 캘린더 애플리케이션을 사용해 할 일들을 관리했던 왔던 당신은 네이버웍스의 일정 기능이 불편하다고 느껴, 이를 고치고자 합니다.
+그러나 웍스의 일정은 완료 여부를 체크할 수 없습니다. 당신은 이 불편함을 해소하기 위해 일정에 완료 여부를 체크할 수 있는 기능을 추가하고자 합니다.
 
-당신은 문제의 해결책으로 CRUD가 적용된 간단한 일정 관리 달력을 만들고자 했습니다.
+### 목표
+CRUD가 적용된 간단한 일정 관리 달력을 만드는 것이 목적입니다.
 
 ### API 목록
 spring rest docs를 사용해 작성했습니다. `[서버 주소]/docs/index.html`에서 실행됩니다.
