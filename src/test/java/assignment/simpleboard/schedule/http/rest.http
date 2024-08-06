@@ -1,0 +1,44 @@
+### Create Schedule
+POST http://localhost:8080/schedule
+Content-Type: application/json
+
+{
+  "name" : "test-schedule",
+  "startTime" : "2024-08-06T17:25:02.130581",
+  "endTime" : "2024-08-06T19:25:02.130593",
+  "finished" : false,
+  "memo" : "test-memo",
+  "location" : "test-location",
+  "category" : "test-category"
+}
+
+### Get Detailed Schedule
+GET http://localhost:8080/schedule/17eb7d42-b039-4843-a2d7-c8c3ec2deb7d
+
+### Get Monthly Schedules
+GET http://localhost:8080/schedule?year=2024&month=8
+
+### Update Schedule
+PUT http://localhost:8080/schedule
+Content-Type: application/json
+
+{
+  "id" : "17eb7d42-b039-4843-a2d7-c8c3ec2deb7d",
+  "name" : "updated-schedule",
+  "startTime" : "2024-08-06T17:53:56.75558",
+  "endTime" : "2024-08-06T19:53:56.755586",
+  "finished" : true,
+  "memo" : "updated-memo",
+  "location" : "updated-location",
+  "category" : "updated-category"
+}
+
+### Delete Schedule
+DELETE http://localhost:8080/schedule
+Content-Type: application/json
+
+{
+  "id": "17eb7d42-b039-4843-a2d7-c8c3ec2deb7d"
+}
+
+
