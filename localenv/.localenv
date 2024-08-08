@@ -1,4 +1,0 @@
-MYSQL_HOST = localhost
-MYSQL_PORT = 3306
-MYSQL_ROOT_PASSWORD = password
-MYSQL_DATABASE = assignment
