@@ -18,7 +18,7 @@ Spring Boot를 활용한 Simple Board Project
 
 ```bash
 sudo chmod 755 ./localenv/mysql/conf.d/my.cnf
-docker-compose -f ./localenv/docker-compose.yaml --env-file ./localenv/.localenv up -d
+docker-compose -f ./localenv/docker-compose.yaml --env-file ./localenv/local.env up -d
 ```
 
 이후 아래 명령어를 사용해 DB에 접속할 수 있습니다.
