@@ -29,6 +29,8 @@ docker exec -it assign mysql -u root -p
 ```
 
 2. 실행 방법
+3. 
+`/localenv/local.env`에 있는 내용을 환경변수로 등록 후 아래 명령어를 실행합니다. 
 ```bash
 ./gradlew clean build jacocoTestReport bootRun 
 ```
