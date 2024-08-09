@@ -563,7 +563,7 @@ OK</code></pre>
 <h4 id="_달별_일정_조회_http_request"><a class="link" href="#_달별_일정_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /schedule?year=2024&amp;month=8 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/schedule?year=2024&amp;month=8 HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -609,14 +609,14 @@ Content-Length: 479
 
 {
   "schedules" : [ {
-    "id" : "3acb7c75-4d78-4c58-9e02-2503811e9cec",
+    "id" : "7c1f295e-c676-48ac-adee-3075514881cf",
     "name" : "test-schedule-1",
     "startTime" : "2024-08-01T10:00:00",
     "endTime" : "2024-08-01T12:00:00",
     "finished" : false,
     "category" : "test-category-1"
   }, {
-    "id" : "09f4f907-b50a-44b1-9f91-9870b1f95981",
+    "id" : "b4091e44-79b1-4b42-b12c-5c666702befa",
     "name" : "test-schedule-2",
     "startTime" : "2024-08-15T14:00:00",
     "endTime" : "2024-08-15T16:00:00",
@@ -686,7 +686,7 @@ Content-Length: 479
 <h4 id="_상세_일정_조회_http_request"><a class="link" href="#_상세_일정_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /schedule/01bfa08d-17a0-46d8-a2e9-d54e79c06ffb HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/schedule/9610e35a-4867-42f5-8efb-e261075e442d HTTP/1.1
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -694,7 +694,7 @@ Host: localhost:8080</code></pre>
 <div class="sect3">
 <h4 id="_상세_일정_조회_path_parameters"><a class="link" href="#_상세_일정_조회_path_parameters">Path parameters</a></h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. /schedule/{id}</caption>
+<caption class="title">Table 1. /api/schedule/{id}</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -722,11 +722,11 @@ Content-Type: application/json
 Content-Length: 330
 
 {
-  "id" : "01bfa08d-17a0-46d8-a2e9-d54e79c06ffb",
+  "id" : "9610e35a-4867-42f5-8efb-e261075e442d",
   "name" : "test-schedule",
-  "startTime" : "2024-08-06T18:15:59.881118",
-  "endTime" : "2024-08-06T20:15:59.881129",
-  "lastUpdateTime" : "2024-08-06T18:15:59.881136",
+  "startTime" : "2024-08-11T20:20:49.077487",
+  "endTime" : "2024-08-11T22:20:49.077499",
+  "lastUpdateTime" : "2024-08-11T20:20:49.077506",
   "finished" : false,
   "memo" : "test-memo",
   "location" : "test-location",
@@ -808,7 +808,7 @@ Content-Type: application/json
 Content-Length: 166
 
 {
-  "timestamp" : "2024-08-06T18:16:00",
+  "timestamp" : "2024-08-11T20:20:49",
   "status" : 404,
   "error" : "NOT_FOUND",
   "code" : "SCHEDULE_NOT_FOUND",
@@ -825,15 +825,15 @@ Content-Length: 166
 <h4 id="_일정_추가_http_request"><a class="link" href="#_일정_추가_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /schedule HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/schedule HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 230
 Host: localhost:8080
 
 {
   "name" : "test-schedule",
-  "startTime" : "2024-08-06T18:16:00.000329",
-  "endTime" : "2024-08-06T20:16:00.000341",
+  "startTime" : "2024-08-11T20:20:49.188402",
+  "endTime" : "2024-08-11T22:20:49.188414",
   "finished" : false,
   "memo" : "test-memo",
   "location" : "test-location",
@@ -927,13 +927,13 @@ Host: localhost:8080
 <h4 id="_일정_삭제_http_request"><a class="link" href="#_일정_삭제_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /schedule HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/schedule HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 51
 Host: localhost:8080
 
 {
-  "id" : "f943b446-8c32-4c21-aa75-517e93fb67b1"
+  "id" : "3c350bb0-88ce-469b-96ca-3e9d2e1014d9"
 }</code></pre>
 </div>
 </div>
@@ -985,7 +985,7 @@ Content-Type: application/json
 Content-Length: 166
 
 {
-  "timestamp" : "2024-08-06T18:15:59",
+  "timestamp" : "2024-08-11T20:20:49",
   "status" : 404,
   "error" : "NOT_FOUND",
   "code" : "SCHEDULE_NOT_FOUND",
@@ -1002,16 +1002,16 @@ Content-Length: 166
 <h4 id="_일정_수정_http_request"><a class="link" href="#_일정_수정_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /schedule HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/schedule HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 290
 Host: localhost:8080
 
 {
-  "id" : "75bc9103-8499-4e43-8a22-52cc81d65af8",
+  "id" : "3039c571-5e36-4a4c-8844-27a4a58dd3c0",
   "name" : "updated-schedule",
-  "startTime" : "2024-08-06T18:15:59.968049",
-  "endTime" : "2024-08-06T20:15:59.968056",
+  "startTime" : "2024-08-11T20:20:49.154721",
+  "endTime" : "2024-08-11T22:20:49.154729",
   "finished" : true,
   "memo" : "updated-memo",
   "location" : "updated-location",
@@ -1103,14 +1103,14 @@ Host: localhost:8080
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 341
+Content-Length: 340
 
 {
-  "id" : "75bc9103-8499-4e43-8a22-52cc81d65af8",
+  "id" : "3039c571-5e36-4a4c-8844-27a4a58dd3c0",
   "name" : "updated-schedule",
-  "startTime" : "2024-08-06T18:15:59.968069",
-  "endTime" : "2024-08-06T20:15:59.968072",
-  "lastUpdateTime" : "2024-08-06T18:15:59.968077",
+  "startTime" : "2024-08-11T20:20:49.154743",
+  "endTime" : "2024-08-11T22:20:49.154745",
+  "lastUpdateTime" : "2024-08-11T20:20:49.15475",
   "finished" : true,
   "memo" : "updated-memo",
   "location" : "updated-location",
@@ -1192,7 +1192,7 @@ Content-Type: application/json
 Content-Length: 166
 
 {
-  "timestamp" : "2024-08-06T18:16:00",
+  "timestamp" : "2024-08-11T20:20:49",
   "status" : 404,
   "error" : "NOT_FOUND",
   "code" : "SCHEDULE_NOT_FOUND",
@@ -1209,7 +1209,7 @@ Content-Length: 166
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2024-08-06 17:50:59 +0900
+Last updated 2024-08-11 19:48:57 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

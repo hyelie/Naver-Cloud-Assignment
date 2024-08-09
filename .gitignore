@@ -6,6 +6,7 @@ build/
 !**/src/test/**/build/
 /localenv/mysql/volume/**/*.*
 /localenv/mysql/volume/*
+!**/*.log
 
 ### STS ###
 .apt_generated
