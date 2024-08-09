@@ -78,7 +78,7 @@ public class ScheduleControllerTest {
         when(scheduleService.create(any(CreateScheduleDto.class))).thenReturn(createdDto);
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.post("/schedule")
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.post("/api/schedule")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(createDto)))
                         .andExpect((status().isCreated()));
@@ -145,7 +145,7 @@ public class ScheduleControllerTest {
         when(scheduleService.update(any(UpdateScheduleDto.class))).thenReturn(updatedDto);
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.put("/schedule")
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.put("/api/schedule")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(updateDto)))
                         .andExpect((status().isOk()))
@@ -193,7 +193,7 @@ public class ScheduleControllerTest {
         when(scheduleService.update(any(UpdateScheduleDto.class))).thenThrow(new CustomException(ErrorCode.SCHEDULE_NOT_FOUND));
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.put("/schedule")
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.put("/api/schedule")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(updateDto)))
                         .andExpect((status().isNotFound()));
@@ -213,7 +213,7 @@ public class ScheduleControllerTest {
                 .build();
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.delete("/schedule")
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.delete("/api/schedule")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(deleteDto)))
                         .andExpect(status().isNoContent());
@@ -237,7 +237,7 @@ public class ScheduleControllerTest {
         doThrow(new CustomException(ErrorCode.SCHEDULE_NOT_FOUND)).when(scheduleService).delete(any(DeleteScheduleDto.class));
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.delete("/schedule")
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.delete("/api/schedule")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(deleteDto)))
                         .andExpect(status().isNotFound());
@@ -267,7 +267,7 @@ public class ScheduleControllerTest {
         when(scheduleService.getDetailedSchedule(id)).thenReturn(scheduleDto);
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.get("/schedule/{id}", id))
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.get("/api/schedule/{id}", id))
                         .andExpect(status().isOk())
                         .andExpect(jsonPath("$.name").value("test-schedule"));
 
@@ -299,7 +299,7 @@ public class ScheduleControllerTest {
         when(scheduleService.getDetailedSchedule(id)).thenThrow(new CustomException(ErrorCode.SCHEDULE_NOT_FOUND));
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.get("/schedule/{id}", id))
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.get("/api/schedule/{id}", id))
                         .andExpect(status().isNotFound());
 
         // docs
@@ -333,7 +333,7 @@ public class ScheduleControllerTest {
         when(scheduleService.getMonthlySchedules(year, month)).thenReturn(Arrays.asList(scheduleDto1, scheduleDto2));
 
         // when && then
-        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.get("/schedule")
+        ResultActions result = mockMvc.perform(RestDocumentationRequestBuilders.get("/api/schedule")
                         .param("year", String.valueOf(year))
                         .param("month", String.valueOf(month)))
                         .andExpect(status().isOk())

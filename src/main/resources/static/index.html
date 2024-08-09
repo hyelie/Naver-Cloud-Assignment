@@ -14,6 +14,8 @@
         }
     </style>
     <script>
+        let serverAddress = '${SERVER_ADDRESS}' || 'localhost';
+
         function parseDate(){
             const urlParams = new URLSearchParams(window.location.search);
             const yearParam = urlParams.get('year');
@@ -31,7 +33,7 @@
         async function fetchSchedules() {
             const calendarYear = calendarDate.getFullYear()
             const calendarMonth = calendarDate.getMonth();
-            const response = await fetch(`http://localhost:8080/schedule?year=${calendarYear}&month=${calendarMonth}`);
+            const response = await fetch(`http://${serverAddress}/api/schedule?year=${calendarYear}&month=${calendarMonth}`);
             const data = await response.json();
             const schedules = data.schedules;
             return data.schedules.map(schedule => ({

@@ -14,6 +14,7 @@ import java.util.Map;
 // controller layer : 입력 검증 & 출력 형식 맞춰서 리턴 & service layer 호출
 
 @RestController
+@RequestMapping("/api")
 public class ScheduleController {
     private final ScheduleService scheduleService;
 
