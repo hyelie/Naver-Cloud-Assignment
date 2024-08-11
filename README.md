@@ -29,7 +29,7 @@ docker exec -it assign mysql -u root -p
 ```
 
 2. 실행 방법
-3. 
+
 `/localenv/local.env`에 있는 내용을 환경변수로 등록 후 아래 명령어를 실행합니다. 
 ```bash
 ./gradlew clean build jacocoTestReport bootRun 
@@ -49,9 +49,9 @@ docker exec -it assign mysql -u root -p
 CRUD가 적용된 간단한 일정 관리 달력을 만드는 것이 목적입니다.
 
 ### API 목록
-spring rest docs를 사용해 작성했습니다. `[서버 주소]/docs/index.html`에서 실행됩니다.
+spring rest docs를 사용해 작성했습니다. 
 
-다음 링크에서도 확인할 수 있습니다. [API 문서](./readme/api_specification.pdf)
+다음 링크에서 확인할 수 있습니다. [API 문서](./readme/api_specification.pdf)
 
 ### 테스트 코드
 테스트 커버리지는 `build/reports/jacoco/test/html/index.html`에서 확인할 수 있습니다.
@@ -101,5 +101,5 @@ swagger는 annotation이 운영 코드로 들어오게 되는데, 이 부분이 
 #### 로깅
 시간 문제로 로그는 일단 콘솔과 파일에 작성하도록 했지만, 추후 Naver Cloud Log Analytics를 붙이면 될 것 같습니다.
 
-#### spring profile 구성
-DB, 로그 등등 사용하는 환경변수들은 로컬/개발/빌드/라이브 각각에서 달라야 합니다. 시간 문제로 profile을 도입하지 못했지만 환경에 따라 다르게 구축하면 될 것 같습니다.
+#### DB 암호 관리
+DB, 로그 등등 사용하는 환경변수들은 로컬/개발/빌드/라이브 각각에서 달라야 합니다. 이번 과제에서는 DB 연결 정보만 가지고 있으면 되므로 docker image를 실행할 때 입력으로 환경변수를 설정하게 했지만, 양이 많아지면 별도의 profile 파일로 관리하고 실행 시 profile을 지정하면 될 것 같습니다.
